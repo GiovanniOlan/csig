@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "product".
+ * This is the model class for table "producto".
  *
  * @property int $pro_id Id
  * @property string $pro_name Nombre
@@ -14,14 +14,14 @@ use Yii;
  * @property string $pro_photo Foto
  * @property string $pro_date Fecha
  */
-class Product extends \yii\db\ActiveRecord
+class Producto extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'product';
+        return 'producto';
     }
 
     /**

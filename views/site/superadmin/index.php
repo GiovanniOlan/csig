@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 $botones = [
-    ['nombre' => 'Productos', 'url' => '/product', 'icon' => 'alumno', 'content' => 'Tarea'],
+    ['nombre' => 'Productos', 'url' => '/producto', 'icon' => 'alumno', 'content' => 'Tarea'],
     ['nombre' => 'Anuncio', 'url' => '/banner', 'icon' => 'alumno', 'content' => 'Fecha'],
 ];
 ?>
@@ -26,7 +26,7 @@ $botones = [
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href=<?= $bot->url . "?nombre=" . $bot->nombre ?>> Ver tablas</a></div>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href=<?= $bot->url ?>> Ver tablas</a></div>
                         </div>
                     </div>
                 </div>

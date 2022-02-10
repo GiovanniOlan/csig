@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Banner */
 
 $this->title = $model->bann_id;
-$this->params['breadcrumbs'][] = ['label' => 'Banners', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Anuncios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'bann_id' => $model->bann_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'bann_id' => $model->bann_id], [
+        <?= Html::a('Actualizar', ['update', 'id' => $model->bann_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Eliminar', ['delete', 'id' => $model->bann_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => '¿Estás seguro de que quieres eliminar este anuncio?',
                 'method' => 'post',
             ],
         ]) ?>

@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Banner */
 
-$this->title = 'Update Banner: ' . $model->bann_id;
-$this->params['breadcrumbs'][] = ['label' => 'Banners', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->bann_id, 'url' => ['view', 'bann_id' => $model->bann_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Actualizar Anuncio: ' . $model->bann_id;
+$this->params['breadcrumbs'][] = ['label' => 'Anuncio', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->bann_id, 'url' => ['view', 'id' => $model->bann_id]];
+$this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="banner-update">
 

@@ -53,10 +53,10 @@ class BannerController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($bann_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($bann_id),
+            'model' => $this->findModel($id),
         ]);
     }
 
@@ -71,7 +71,7 @@ class BannerController extends Controller
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'bann_id' => $model->bann_id]);
+                return $this->redirect(['view', 'id' => $model->bann_id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -89,12 +89,12 @@ class BannerController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($bann_id)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($bann_id);
+        $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'bann_id' => $model->bann_id]);
+            return $this->redirect(['view', 'id' => $model->bann_id]);
         }
 
         return $this->render('update', [

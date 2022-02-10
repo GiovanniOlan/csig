@@ -27,9 +27,10 @@ class Banner extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['bann_photo', 'bann_url'], 'required'],
+            [['bann_photo', 'bann_url', 'bann_status'], 'required'],
             [['bann_photo'], 'string', 'max' => 150],
             [['bann_url'], 'string', 'max' => 100],
+            [['bann_status'], 'integer'],
         ];
     }
 
@@ -42,6 +43,7 @@ class Banner extends \yii\db\ActiveRecord
             'bann_id' => 'Id',
             'bann_photo' => 'Foto',
             'bann_url' => 'Url',
+            'bann_status' => 'Estatus',
         ];
     }
 }

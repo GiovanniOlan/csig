@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $model app\models\Producto */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="product-form">
+<div class="producto-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

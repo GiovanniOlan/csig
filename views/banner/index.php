@@ -1,15 +1,13 @@
 <?php
 
-use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
+use yii\helpers\Html;
+use app\models\Banner;
 use yii\grid\GridView;
+use yii\grid\ActionColumn;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\BannerSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Banners';
+$this->title = 'Anuncios Principales';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="banner-index">
@@ -17,10 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Banner', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear Banner', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); 
+    ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -34,8 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Banner $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'bann_id' => $model->bann_id]);
-                 }
+                    return Url::toRoute([$action, 'id' => $model->bann_id]);
+                }
             ],
         ],
     ]); ?>
