@@ -1,11 +1,12 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use kartik\file\FileInput;
+use kartik\select2\Select2;
+use app\models\ProductoImagen;
+use yii\bootstrap4\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Producto */
-/* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="producto-form">
@@ -16,14 +17,62 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'pro_description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'pro_status')->textInput() ?>
+    <?php // $form->field($model, 'pro_status')->textInput() 
+    ?>
 
-    <?= $form->field($model, 'pro_photo')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, "pro_status")->widget(Select2::classname(), [
+        'data' => [0 => 'Oculto', 1 => 'Visible'],
+        'options' => ['placeholder' => 'Selecciona su Estatus...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
+    <?php
+    if ($i) {
+
+        echo $form->field($productoImagen, 'img[]')->widget(
+            FileInput::classname(),
+            [
+                'options'       => ['accept' => 'image/*', 'multiple' => true],
+                'language'      => 'es',
+                'pluginOptions' => [
+                    'allowedFileExtensions' =>  ['jpg', 'png'],
+                    'initialPreviewAsData'  => true,
+                    'showUpload'            => false,
+                    'showRemove'            => false,
+                    'initialPreview'        => [$productoImagen->getUrl()],
+                    'browseClass'           => 'btn btn-primary btn-block',
+                    'browseIcon'            => '<i class="fas fa-camera"></i> ',
+                    'browseLabel'           =>  'Seleccione una foto',
+                ],
+            ]
+        );
+    } else {
+        echo $form->field(empty($productoImagen) ? new ProductoImagen : $productoImagen[0], 'img[]')->widget(
+            FileInput::classname(),
+            [
+                'options'       => ['accept' => 'image/*', 'multiple' => true],
+                'language'      => 'es',
+                'pluginOptions' => [
+                    'allowedFileExtensions' =>  ['jpg', 'png'],
+                    'initialPreviewAsData'  => true,
+                    'showUpload'            => false,
+                    'showRemove'            => false,
+                    'initialPreview'        => ProductoImagen::getUrls($productoImagen),
+                    'browseClass'           => 'btn btn-primary btn-block',
+                    'browseIcon'            => '<i class="fas fa-camera"></i> ',
+                    'browseLabel'           =>  'Seleccione una foto',
+                ],
+            ]
+        );
+    }
+    ?>
 
     <?= $form->field($model, 'pro_date')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -16,32 +16,22 @@ use Yii;
  */
 class Producto extends \yii\db\ActiveRecord
 {
-    /**
-     * {@inheritdoc}
-     */
     public static function tableName()
     {
         return 'producto';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function rules()
     {
         return [
-            [['pro_name', 'pro_description', 'pro_status', 'pro_photo', 'pro_date'], 'required'],
+            [['pro_name', 'pro_description', 'pro_status', 'pro_date'], 'required'],
             [['pro_description'], 'string'],
             [['pro_status'], 'integer'],
             [['pro_date'], 'safe'],
             [['pro_name'], 'string', 'max' => 150],
-            [['pro_photo'], 'string', 'max' => 100],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function attributeLabels()
     {
         return [
@@ -49,8 +39,19 @@ class Producto extends \yii\db\ActiveRecord
             'pro_name' => 'Nombre',
             'pro_description' => 'Descripción',
             'pro_status' => 'Estatus',
-            'pro_photo' => 'Foto',
             'pro_date' => 'Fecha',
         ];
+    }
+
+    //This function return Visible if pro_status is 1 or Oculto if it is 0
+    public function getStringStatus()
+    {
+        $result = '';
+        if ($this->pro_status == 0) {
+            $result = 'Oculto';
+        } else {
+            $result = 'Visible';
+        }
+        return $result;
     }
 }

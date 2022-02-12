@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'pro_name',
             'pro_description:ntext',
             'pro_status',
-            'pro_photo',
             //'pro_date',
             [
                 'class' => ActionColumn::className(),

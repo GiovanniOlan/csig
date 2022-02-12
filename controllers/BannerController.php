@@ -21,6 +21,9 @@ class BannerController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'ghost-access' => [
+                    'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+                ],
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
@@ -31,11 +34,6 @@ class BannerController extends Controller
         );
     }
 
-    /**
-     * Lists all Banner models.
-     *
-     * @return string
-     */
     public function actionIndex()
     {
         $searchModel = new BannerSearch();
@@ -47,12 +45,6 @@ class BannerController extends Controller
         ]);
     }
 
-    /**
-     * Displays a single Banner model.
-     * @param int $bann_id Id
-     * @return string
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -60,11 +52,6 @@ class BannerController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Banner model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
-     */
     public function actionCreate()
     {
         $model = new Banner();
@@ -82,13 +69,6 @@ class BannerController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Banner model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param int $bann_id Id
-     * @return string|\yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -102,13 +82,6 @@ class BannerController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Banner model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param int $bann_id Id
-     * @return \yii\web\Response
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionDelete($bann_id)
     {
         $this->findModel($bann_id)->delete();
@@ -116,13 +89,6 @@ class BannerController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Banner model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param int $bann_id Id
-     * @return Banner the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($bann_id)
     {
         if (($model = Banner::findOne(['bann_id' => $bann_id])) !== null) {

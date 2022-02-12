@@ -2,8 +2,7 @@
 
 use yii\helpers\Html;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Producto */
+$i = false;
 
 $this->title = 'Actualizar Producto: ' . $model->pro_id;
 $this->params['breadcrumbs'][] = ['label' => 'Productos', 'url' => ['index']];
@@ -14,8 +13,6 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?= $this->render('_form', compact('model', 'productoImagen', 'i')) ?>
 
 </div>

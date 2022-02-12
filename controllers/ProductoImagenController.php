@@ -3,19 +3,15 @@
 namespace app\controllers;
 
 use Yii;
-use app\widgets\Alert;
 use yii\web\Controller;
-use app\models\Producto;
+use yii\bootstrap4\Alert;
 use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
 use app\models\ProductoImagen;
-use app\models\ProductoSearch;
 use yii\web\NotFoundHttpException;
+use app\models\ProductoImagenSearch;
 
-/**
- * ProductoController implements the CRUD actions for Producto model.
- */
-class ProductoController extends Controller
+class ProductoImagenController extends Controller
 {
     /**
      * @inheritDoc
@@ -40,7 +36,7 @@ class ProductoController extends Controller
 
     public function actionIndex()
     {
-        $searchModel = new ProductoSearch();
+        $searchModel = new ProductoImagenSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
@@ -58,22 +54,20 @@ class ProductoController extends Controller
 
     public function actionCreate()
     {
-        $model = new Producto();
-        $productoImagen = new ProductoImagen();
+        $model = new ProductoImagen();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                $imagenes = UploadedFile::getInstances($productoImagen, 'img'); //instanciamos la imagen
+            if ($model->load($this->request->post())) {
+                $imagenes = UploadedFile::getInstances($model, 'img'); //instanciamos la imagen
                 if (!is_null($imagenes)) {
                     foreach ($imagenes as $key => $image) {
-                        $tModel =  clone $productoImagen;
-                        $tModel->proimg_fkproducto = $model->pro_id;
+                        $tModel =  clone $model;
                         $ext = explode(".", $image->name); //We get which is the extension's file
                         $ext = end($ext); //We get which is the extension's file
                         $tModel->proimg_url = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
                         $path = Yii::$app->basePath . "/web/images/productos/" . $tModel->proimg_url; // We safe path's image for be save 
                         $image->saveAs($path); //Save the image in the path
-                        $tModel->save(false);
+                        $tModel->save(); //Save the temp model
                     }
                     if (Yii::$app->user->isSuperAdmin) {
                         return $this->redirect(['index']);
@@ -86,68 +80,49 @@ class ProductoController extends Controller
                         'body' => 'No renoce ninguna imagen',
                     ]);
                 }
-                return $this->redirect(['view', 'id' => $model->pro_id]);
+                //return $this->redirect(['view', 'id' => $model->proimg_id]);
             }
         } else {
             $model->loadDefaultValues();
         }
 
-        return $this->render('create', compact('model', 'productoImagen'));
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $productoImagen = ProductoImagen::getAllImagesProductos($model->pro_id);
 
-
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            $imagenes = UploadedFile::getInstances(empty($productoImagen) ? new ProductoImagen : $productoImagen[0], 'img'); //instanciamos la imagen
-            $newProductImage = new ProductoImagen();
-            if (!is_null($imagenes)) {
-                ProductoImagen::deleteImagesAutomaticOfAProduct($model->pro_id);
-                foreach ($imagenes as $key => $image) {
-                    $tModel =  clone $newProductImage;
-                    $tModel->proimg_fkproducto = $model->pro_id;
-                    $ext = explode(".", $image->name); //We get which is the extension's file
-                    $ext = end($ext); //We get which is the extension's file
-                    $tModel->proimg_url = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
-                    $path = Yii::$app->basePath . "/web/images/productos/" . $tModel->proimg_url; // We safe path's image for be save 
-                    $image->saveAs($path); //Save the image in the path
-                    $tModel->save(false);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $image = UploadedFile::getInstance($model, 'img');
+                if (!is_null($image)) {
+                    $path = Yii::$app->basePath . "/web/images/productos/" . $model->proimg_url;
+                    $image->saveAs($path);
                 }
+                $model->save();
                 if (Yii::$app->user->isSuperAdmin) {
-                    return $this->redirect(['index']);
+                    return $this->redirect(['view', 'id' => $model->proimg_id]);
                 }
-            } else {
-                echo Alert::widget([
-                    'options' => [
-                        'class' => 'alert-info',
-                    ],
-                    'body' => 'No renoce ninguna imagen',
-                ]);
             }
-
-
-
-            return $this->redirect(['view', 'id' => $model->pro_id]);
         }
 
-        return $this->render('update', compact('model', 'productoImagen'));
+        return $this->render('update', compact('model'));
     }
 
     public function actionDelete($id)
     {
-        $model = $this->findModel($id);
-        ProductoImagen::deleteImagesAutomaticOfAProduct($model->pro_id);
+        $model =  $this->findModel($id);
+        unlink(Yii::$app->basePath . "/web/images/productos/" . $model->proimg_url);
         $model->delete();
-
         return $this->redirect(['index']);
     }
 
-    protected function findModel($pro_id)
+    protected function findModel($proimg_id)
     {
-        if (($model = Producto::findOne(['pro_id' => $pro_id])) !== null) {
+        if (($model = ProductoImagen::findOne(['proimg_id' => $proimg_id])) !== null) {
             return $model;
         }
 

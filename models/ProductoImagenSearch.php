@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Producto;
+use app\models\ProductoImagen;
 
 /**
- * ProductoSearch represents the model behind the search form of `app\models\Producto`.
+ * ProductoImagenSearch represents the model behind the search form of `app\models\ProductoImagen`.
  */
-class ProductoSearch extends Producto
+class ProductoImagenSearch extends ProductoImagen
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class ProductoSearch extends Producto
     public function rules()
     {
         return [
-            [['pro_id', 'pro_status'], 'integer'],
-            [['pro_name', 'pro_description', 'pro_date'], 'safe'],
+            [['proimg_id', 'proimg_fkproducto'], 'integer'],
+            [['proimg_url'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class ProductoSearch extends Producto
      */
     public function search($params)
     {
-        $query = Producto::find();
+        $query = ProductoImagen::find();
 
         // add conditions that should always apply here
 
@@ -58,13 +58,11 @@ class ProductoSearch extends Producto
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'pro_id' => $this->pro_id,
-            'pro_status' => $this->pro_status,
-            'pro_date' => $this->pro_date,
+            'proimg_id' => $this->proimg_id,
+            'proimg_fkproducto' => $this->proimg_fkproducto,
         ]);
 
-        $query->andFilterWhere(['like', 'pro_name', $this->pro_name])
-            ->andFilterWhere(['like', 'pro_description', $this->pro_description]);
+        $query->andFilterWhere(['like', 'proimg_url', $this->proimg_url]);
 
         return $dataProvider;
     }
