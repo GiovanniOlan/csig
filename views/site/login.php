@@ -10,7 +10,7 @@ use yii\bootstrap4\ActiveForm;
         <div class="bg-light rounded-3 py-4 px-4 px-md-5 mb-5">
             <div class="text-center mb-5">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-envelope"></i>
+                    <i class="bi bi-person-circle"></i>
                 </div>
                 <h1 class="fw-bolder">Inicia Sesión</h1>
                 <p class="lead fw-normal text-muted mb-0">

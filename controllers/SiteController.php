@@ -7,13 +7,11 @@ use yii\web\Response;
 use yii\web\Controller;
 use app\models\ContactForm;
 use yii\bootstrap4\ActiveForm;
+use webvimark\modules\UserManagement\models\User;
 use webvimark\modules\UserManagement\models\forms\LoginForm;
 
 class SiteController extends Controller
 {
-
-    public  $freeAccessActions = ['login'];
-
     public function behaviors()
     {
         return [];
@@ -37,6 +35,8 @@ class SiteController extends Controller
         $path = 'index';
         if (Yii::$app->user->isSuperAdmin) {
             $path = 'superadmin/index';
+        } else if (User::hasRole('Dueno')) {
+            $path = 'Dueno/index';
         }
 
         return $this->render($path);
@@ -65,7 +65,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
 
-    public function actionContact()
+    public function actionContactanos()
     {
         // $model = new ContactForm();
         // if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
@@ -77,9 +77,15 @@ class SiteController extends Controller
         //     'model' => $model,
         // ]);
     }
-
-    public function actionAbout()
+    public function actionNosotros()
     {
-        // return $this->render('about');
+        echo '<pre>';
+        var_dump("sada");
+        echo '</pre>';
+        die;
+    }
+
+    public function actionProductos()
+    {
     }
 }
