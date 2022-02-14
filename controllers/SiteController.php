@@ -3,20 +3,20 @@
 namespace app\controllers;
 
 use Yii;
-use yii\web\Controller;
 use yii\web\Response;
-use app\models\LoginForm;
+use yii\web\Controller;
 use app\models\ContactForm;
+use yii\bootstrap4\ActiveForm;
+use webvimark\modules\UserManagement\models\forms\LoginForm;
 
 class SiteController extends Controller
 {
+
+    public  $freeAccessActions = ['login'];
+
     public function behaviors()
     {
-        return [
-            'ghost-access' => [
-                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
-            ],
-        ];
+        return [];
     }
 
     public function actions()
@@ -44,19 +44,18 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        // if (!Yii::$app->user->isGuest) {
-        //     return $this->goHome();
-        // }
-
-        // $model = new LoginForm();
-        // if ($model->load(Yii::$app->request->post()) && $model->login()) {
-        //     return $this->goBack();
-        // }
-
-        // $model->password = '';
-        // return $this->render('login', [
-        //     'model' => $model,
-        // ]);
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $model = new LoginForm();
+        if (Yii::$app->request->isAjax and $model->load(Yii::$app->request->post())) {
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
+        if ($model->load(Yii::$app->request->post()) and $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('login', compact('model'));
     }
 
     public function actionLogout()
