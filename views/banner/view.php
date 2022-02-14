@@ -30,8 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'bann_id',
-            'bann_photo',
+            //'bann_photo',
             'bann_url:url',
+            [
+                'attribute' => 'imagen',
+                'format' => 'raw',
+            ],
         ],
     ]) ?>
 

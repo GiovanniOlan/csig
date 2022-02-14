@@ -67,20 +67,15 @@ class ProductoImagenController extends Controller
                         $tModel->proimg_url = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
                         $path = Yii::$app->basePath . "/web/images/productos/" . $tModel->proimg_url; // We safe path's image for be save 
                         $image->saveAs($path); //Save the image in the path
+                        $tModel->img = $tModel->proimg_url;
                         $tModel->save(); //Save the temp model
                     }
                     if (Yii::$app->user->isSuperAdmin) {
                         return $this->redirect(['index']);
                     }
                 } else {
-                    echo Alert::widget([
-                        'options' => [
-                            'class' => 'alert-info',
-                        ],
-                        'body' => 'No renoce ninguna imagen',
-                    ]);
+                    Yii::$app->session->setFlash('error', "No reconoce ninguna imagen");
                 }
-                //return $this->redirect(['view', 'id' => $model->proimg_id]);
             }
         } else {
             $model->loadDefaultValues();
@@ -102,9 +97,11 @@ class ProductoImagenController extends Controller
                     $path = Yii::$app->basePath . "/web/images/productos/" . $model->proimg_url;
                     $image->saveAs($path);
                 }
-                $model->save();
-                if (Yii::$app->user->isSuperAdmin) {
-                    return $this->redirect(['view', 'id' => $model->proimg_id]);
+                $model->img = $model->proimg_url;
+                if ($model->save()) {
+                    if (Yii::$app->user->isSuperAdmin) {
+                        return $this->redirect(['view', 'id' => $model->proimg_id]);
+                    }
                 }
             }
         }

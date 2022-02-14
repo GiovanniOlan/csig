@@ -2,20 +2,17 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Banner;
-use app\models\BannerSearch;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use yii\bootstrap4\Alert;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
+use app\models\BannerSearch;
+use yii\web\NotFoundHttpException;
 
-/**
- * BannerController implements the CRUD actions for Banner model.
- */
 class BannerController extends Controller
 {
-    /**
-     * @inheritDoc
-     */
     public function behaviors()
     {
         return array_merge(
@@ -56,9 +53,25 @@ class BannerController extends Controller
     {
         $model = new Banner();
 
+
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->bann_id]);
+            if ($model->load($this->request->post())) {
+                $image = UploadedFile::getInstance($model, 'img'); //instanciamos la imagen
+                if (!is_null($image)) {
+                    $ext = explode(".", $image->name); //We get which is the extension's file
+                    $ext = end($ext); //We get which is the extension's file
+                    $model->bann_photo = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
+                    $path = Yii::$app->basePath . "/web/images/banners/" . $model->bann_photo; // We safe path's image for be save 
+                    $image->saveAs($path); //Save the image in the path
+                    $model->img = $model->bann_photo;
+                    if ($model->save()) {
+                        if (Yii::$app->user->isSuperAdmin) {
+                            return $this->redirect(['view', 'id' => $model->bann_id]);
+                        }
+                    }
+                } else {
+                    Yii::$app->session->setFlash('error', "No has escogido ninguna imagen");
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -72,9 +85,22 @@ class BannerController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->scenario = 'update';
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->bann_id]);
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+                $image = UploadedFile::getInstance($model, 'img');
+                if (!is_null($image)) {
+                    $path = Yii::$app->basePath . "/web/images/banners/" . $model->bann_photo;
+                    $image->saveAs($path);
+                }
+                $model->img = $model->bann_photo;
+                if ($model->save()) {
+                    if (Yii::$app->user->isSuperAdmin) {
+                        return $this->redirect(['view', 'id' => $model->bann_id]);
+                    }
+                }
+            }
         }
 
         return $this->render('update', [
@@ -82,9 +108,11 @@ class BannerController extends Controller
         ]);
     }
 
-    public function actionDelete($bann_id)
+    public function actionDelete($id)
     {
-        $this->findModel($bann_id)->delete();
+        $model = $this->findModel($id);
+        unlink(Yii::$app->basePath . "/web/images/banners/" . $model->bann_photo);
+        $model->delete();
 
         return $this->redirect(['index']);
     }

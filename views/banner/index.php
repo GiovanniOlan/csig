@@ -28,8 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'bann_id',
-            'bann_photo',
             'bann_url:url',
+            //'bann_photo',
+            [
+                'attribute' => 'imagen',
+                'format' => 'raw',
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Banner $model, $key, $index, $column) {

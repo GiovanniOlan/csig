@@ -2,8 +2,8 @@
 /* @var $this yii\web\View */
 $botones = [
     ['nombre' => 'Productos', 'url' => '/producto', 'icon' => 'alumno', 'content' => 'Tarea'],
-    ['nombre' => 'Banner', 'url' => '/banner', 'icon' => 'alumno', 'content' => 'Fecha'],
     ['nombre' => 'Productos_imagen', 'url' => '/producto-imagen', 'icon' => 'alumno', 'content' => 'Fecha'],
+    ['nombre' => 'Banner', 'url' => '/banner', 'icon' => 'alumno', 'content' => 'Fecha'],
 ];
 ?>
 <!-- Section-->
