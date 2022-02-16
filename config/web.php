@@ -37,12 +37,40 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        // 'mailer' => [
+        //     'class' => 'yii\swiftmailer\Mailer',
+        //     // send all mails to a file by default. You have to set
+        //     // 'useFileTransport' to false and configure transport
+        //     // for the mailer to send real emails.
+        //     'useFileTransport' => true,
+        // ],
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'class' => yii\symfonymailer\Mailer::class,
+            'transport' =>
+            [
+                'transport' => [
+                    'scheme' => 'smtps',
+                    'host' => 'mx50.hostgator.mx ',
+                    'username' => 'contactanos@csig.com.mx',
+                    'password' => 'JsOuprkyytv1V4BZ#8',
+                    'port' => 21,
+                    'dsn' => 'native://default',
+                ],
+                'viewPath' => '@common/mail',
+                'useFileTransport' => false,
+            ]
+            // 'transport' => [
+            //     'scheme' => 'smtps',
+            //     //'class' => 'Swift_SmtpTransport',
+            //     'host' => 'smtp.csig.com.mx',
+            //     'username' => 'contactanos@csig.com.mx',
+            //     'password' => 'JsOuprkyytv1V4BZ#8',
+            //     'port' => '465',
+            //     //'encryption' => 'tls',
+            //     //'dsn' => 'native://default',
+            // ],
+            // 'viewPath' => '@common/mail',
+            // 'useFileTransport' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -117,7 +145,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '192.168.1.72', '::1'],
+        'allowedIPs' => ['127.0.0.1', '192.168.1.72', '192.168.1.73', '::1'],
     ];
 }
 

@@ -8,6 +8,8 @@ use app\widgets\Alert;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
 
+date_default_timezone_set('America/Mexico_City');
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -25,16 +27,16 @@ AppAsset::register($this);
 <body class="d-flex flex-column h-100">
     <?php $this->beginBody() ?>
 
-    <?= $this->render('navbar') ?>
-
     <main role="main" class="flex-shrink-0">
-        <div class="container">
-            <?= Breadcrumbs::widget([
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-            ]) ?>
-            <?= Alert::widget() ?>
-            <?= $content ?>
-        </div>
+        <?= $this->render('navbar') ?>
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?= Alert::widget() ?>
+        <?= $content ?>
+        <!-- <div class="container">
+
+        </div> -->
     </main>
 
     <footer class="footer mt-auto py-3 text-muted">

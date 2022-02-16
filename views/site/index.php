@@ -1,53 +1,281 @@
-<?php
-
-/** @var yii\web\View $this */
-
-$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+<section class="bg-dark py-5">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center
+                        justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-7 fw-bolder text-white mb-2">
+                        Comercializadora y servicios industriales
+                        del golfo.
+                    </h1>
+                    <p class="lead fw-normal text-white-50 mb-4">
+                        Les ofrecemos
+                        gran variedad de artículos y servicios de la
+                        industria.
+                    </p>
+                    <div class="d-grid gap-3 d-sm-flex
+                                    justify-content-sm-center
+                                    justify-content-xl-start">
+                        <!-- <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a> -->
+                        <a class="btn btn-outline-light btn-lg px-4" href="#!">Leer mas</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+            <div class="col-xl-5 col-xxl-6 d-none d-xl-block
+                            text-center">
+                <img class="img-fluid rounded-3 my-5" src="template/img/7.png" alt="..." />
             </div>
         </div>
-
     </div>
-</div>
+
+</section>
+
+
+<section class="py-1" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h2 class="fw-bolder mb-0">¡Bienvenido a CSIG!</h2>
+                <div class="col-xl-10 col-xxl-6 d-none d-xl-block
+                            text-center">
+                    <img class="img-fluid rounded-3 my-3" src="template/img/logoem.png" />
+                </div>
+                <!-- <div
+                            class="feature bg-gradient
+                            text-bl rounded-3 mb-6">
+                            <i class="bi bi-cash-coin"/></i>
+                        </div> -->
+            </div>
+            <div class="col-lg-8">
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient
+                                        text-white rounded-3 mb-3">
+                            <i class="bi bi-cash-coin"></i>
+                        </div>
+                        <h2 class="h5">Precio</h2>
+                        <p class="mb-0">Los precios más accesibles
+                            en el mercado.</p>
+                    </div>
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient
+                                        text-white rounded-3 mb-3">
+                            <i class="bi bi-cursor-fill"></i>
+                        </div>
+                        <h2 class="h5">Accesibilidad</h2>
+                        <p class="mb-0">
+                            Fácil acceso gracias a nuestra
+                            localización.
+                        </p>
+                    </div>
+                    <div class="col mb-5 mb-md-0 h-100">
+                        <div class="feature bg-primary bg-gradient
+                                        text-white rounded-3 mb-3">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h2 class="h5">Confianza</h2>
+                        <p class="mb-0">Con más de 13 años en el
+                            mercado.</p>
+                    </div>
+                    <div class="col h-100">
+                        <div class="feature bg-primary bg-gradient
+                                        text-white rounded-3 mb-3">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+                        <h2 class="h5">Calidad</h2>
+                        <p class="mb-0">Productos de la mejor
+                            calidad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Testimonial section-->
+<!-- <div class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                                <div class="fs-4 mb-4 fst-italic">"Working with Start Bootstrap templates has saved me tons of development time when building new projects! Starting with a Bootstrap template just makes things easier!"</div>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                    <div class="fw-bold">
+                                        Tom Ato
+                                        <span class="fw-bold text-primary mx-1">/</span>
+                                        CEO, Pomodoro
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    -->
+<!-- Blog preview section-->
+<section class="py-2 bg-light">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="text-center">
+                    <h2 class="fw-bolder">Productos destacados.</h2>
+                    <p class="lead fw-normal text-muted mb-5">
+                        Encuentra todo lo que necesitas.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/ced4da/6c757d" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient
+                                        rounded-pill mb-2">
+                            News
+                        </div>
+                        <a class="text-decoration-none link-dark
+                                        stretched-link" href="#!">
+                            <h5 class="card-title mb-3">Blog
+                                post title</h5>
+                        </a>
+                        <p class="card-text mb-0">
+                            Some quick example text to build on the
+                            card title and make
+                            up the bulk of the card's content.
+                        </p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent
+                                    border-top-0">
+                        <div class="d-flex align-items-end
+                                        justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                <div class="small">
+                                    <div class="fw-bold">Kelly Rowan</div>
+                                    <div class="text-muted">
+                                        March 12, 2021 &middot; 6
+                                        min read
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient
+                                        rounded-pill mb-2">
+                            Media
+                        </div>
+                        <a class="text-decoration-none link-dark
+                                        stretched-link" href="#!">
+                            <h5 class="card-title mb-3">Another
+                                blog post title</h5>
+                        </a>
+                        <p class="card-text mb-0">
+                            This text is a bit longer to illustrate
+                            the adaptive height
+                            of each card. Some quick example text to
+                            build on the card
+                            title and make up the bulk of the card's
+                            content.
+                        </p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent
+                                    border-top-0">
+                        <div class="d-flex align-items-end
+                                        justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                <div class="small">
+                                    <div class="fw-bold">Josiah
+                                        Barclay</div>
+                                    <div class="text-muted">
+                                        March 23, 2021 &middot; 4
+                                        min read
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/6c757d/343a40" alt="..." />
+                    <div class="card-body p-4">
+                        <div class="badge bg-primary bg-gradient
+                                        rounded-pill mb-2">
+                            News
+                        </div>
+                        <a class="text-decoration-none link-dark
+                                        stretched-link" href="#!">
+                            <h5 class="card-title mb-3">
+                                The last blog post title is a little
+                                bit longer than the
+                                others
+                            </h5>
+                        </a>
+                        <p class="card-text mb-0">
+                            Some more quick example text to build on
+                            the card title and
+                            make up the bulk of the card's content.
+                        </p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent
+                                    border-top-0">
+                        <div class="d-flex align-items-end
+                                        justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                <div class="small">
+                                    <div class="fw-bold">Evelyn
+                                        Martinez</div>
+                                    <div class="text-muted">
+                                        April 2, 2021 &middot; 10
+                                        min read
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-8 col-xl-6">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">¿Qué ofrecemos?</h2>
+                        <p class="lead fw-normal text-muted mb-5">
+                            Nuestras soluciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">Comercialización</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">Distribución</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <img class="card-img-top" src="https://dummyimage.com/600x350/adb5bd/495057" alt="..." />
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-3">Atención personalizada</h5>
+                    </div>
+                </div>
+            </div>
+</section>

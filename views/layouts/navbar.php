@@ -11,7 +11,7 @@ use yii\bootstrap4\NavBar;
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' =>  Html::img('template/img/ITec3.png', ['class' => 'rounded-circle me-3']),
+        'brandLabel' =>  Html::img('/template/img/ITec3.png', ['class' => 'rounded-circle me-3']),
         'brandUrl' => Yii::$app->homeUrl,
         'innerContainerOptions' => ['class' => 'container px-5'],
         'options' => [
@@ -21,7 +21,7 @@ use yii\bootstrap4\NavBar;
     $menuItems = [];
     $menuItems[] = ['label' => 'Inicio', 'url' => '/'];
     $menuItems[] = ['label' => 'Nosotros', 'url' => 'site/nosotros'];
-    $menuItems[] = ['label' => 'Contáctanos', 'url' => 'site/contactanos'];
+    $menuItems[] = ['label' => 'Contáctanos', 'url' => 'contacto'];
     $menuItems[] = ['label' => 'Productos', 'url' => 'site/productos'];
     $menuItems[] = ['label' => 'CERRAR SESIÓN', 'url' => '/user-management/auth/logout', 'visible' => Yii::$app->user->isSuperAdmin, 'options' => ['style' => 'font-family: fangsong;']];
     ?>
