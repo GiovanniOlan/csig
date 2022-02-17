@@ -69,8 +69,6 @@ use yii\bootstrap4\ActiveForm;
     }
     ?>
 
-    <?= $form->field($model, 'pro_date')->textInput() ?>
-
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>

@@ -28,15 +28,25 @@ AppAsset::register($this);
     <?php $this->beginBody() ?>
 
     <main role="main" class="flex-shrink-0">
-        <?= $this->render('navbar') ?>
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-        <!-- <div class="container">
 
-        </div> -->
+        <?= $this->render('navbar') ?>
+        <?php if (Yii::$app->user->isSuperAdmin) { ?>
+            <div class="container">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= Alert::widget() ?>
+                <?= $content ?>
+
+            </div>
+        <?php } else { ?>
+
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
+        <?php } ?>
     </main>
 
     <footer class="footer mt-auto py-3 text-muted">

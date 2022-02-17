@@ -32,10 +32,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'pro_id',
             'pro_name',
             'pro_description:ntext',
-            'pro_photo',
             'pro_date',
             //'pro_status',
-            'stringStatus'
+            'stringStatus',
+            //'pro_photo',
+            [
+                'attribute' => 'imagen',
+                'format' => 'raw',
+            ],
+
         ],
     ]) ?>
 

@@ -20,9 +20,9 @@ use yii\bootstrap4\NavBar;
     ]);
     $menuItems = [];
     $menuItems[] = ['label' => 'Inicio', 'url' => '/'];
-    $menuItems[] = ['label' => 'Nosotros', 'url' => 'site/nosotros'];
-    $menuItems[] = ['label' => 'Contáctanos', 'url' => 'contacto'];
-    $menuItems[] = ['label' => 'Productos', 'url' => 'site/productos'];
+    $menuItems[] = ['label' => 'Nosotros', 'url' => '/site/nosotros'];
+    $menuItems[] = ['label' => 'Contáctanos', 'url' => '/contacto'];
+    $menuItems[] = ['label' => 'Productos', 'url' => '/site/productos'];
     $menuItems[] = ['label' => 'CERRAR SESIÓN', 'url' => '/user-management/auth/logout', 'visible' => Yii::$app->user->isSuperAdmin, 'options' => ['style' => 'font-family: fangsong;']];
     ?>
     <?= Nav::widget([

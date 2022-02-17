@@ -3,6 +3,8 @@
 namespace app\models;
 
 use Yii;
+use yii\bootstrap4\Html;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "producto".
@@ -43,6 +45,16 @@ class Producto extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getImagen()
+    {
+        $imgns = ProductoImagen::find()->where(['proimg_fkproducto' => $this->pro_id])->all();
+        $ret = '';
+        foreach ($imgns as $im) {
+            $ret .= $im->getImagen();
+        }
+        return $ret;
+    }
+
     //This function return Visible if pro_status is 1 or Oculto if it is 0
     public function getStringStatus()
     {
@@ -53,5 +65,9 @@ class Producto extends \yii\db\ActiveRecord
             $result = 'Visible';
         }
         return $result;
+    }
+    public static function mapNombre()
+    { //esta la uso en la vista _form.php de REACCION
+        return ArrayHelper::map(Self::find()->all(), 'pro_id', 'pro_name');
     }
 }

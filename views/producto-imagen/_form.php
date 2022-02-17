@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
+use app\models\Producto;
 use kartik\file\FileInput;
+use kartik\select2\Select2;
 use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -39,7 +41,14 @@ use yii\bootstrap4\ActiveForm;
     );
     ?>
 
-    <?= $form->field($model, 'proimg_fkproducto')->textInput() ?>
+    <?= $form->field($model, "proimg_fkproducto")->widget(Select2::classname(), [
+        'data' => Producto::mapNombre(),
+        'options' => ['placeholder' => 'Selecciona el producto...'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]);
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
