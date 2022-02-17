@@ -3,7 +3,9 @@
 use yii\helpers\Html;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
+use webvimark\modules\UserManagement\models\User;
 use webvimark\modules\UserManagement\UserManagementModule;
+
 
 
 
@@ -33,7 +35,11 @@ use webvimark\modules\UserManagement\UserManagementModule;
         'encodeLabels' => false,
         'visible' => Yii::$app->user->isSuperAdmin,
     ];
-    $menuItems[] = ['label' => 'CERRAR SESIÓN', 'url' => '/user-management/auth/logout', 'visible' => Yii::$app->user->isSuperAdmin, 'options' => ['style' => 'font-family: fangsong;']];
+    $duenioItems[] = ['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Productos', 'url' => ['/producto/']];
+    $duenioItems[] = ['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Anuncios', 'url' => ['/banner/']];
+    $menuItems[] = ['label' => 'Opciones', 'items' => $duenioItems, 'url' => '/user-management/auth/logout', 'visible' => User::hasRole('Duenio', false), 'options' => ['style' => 'font-family: fangsong;']];
+    $menuItems[] = ['label' => 'CERRAR SESIÓN(Programador X)', 'url' => '/user-management/auth/logout', 'visible' => Yii::$app->user->isSuperAdmin, 'options' => ['style' => 'font-family: fangsong;']];
+    $menuItems[] = ['label' => 'CERRAR SESIÓN(Salomon)', 'url' => '/user-management/auth/logout', 'visible' => User::hasRole('Duenio', false), 'options' => ['style' => 'font-family: fangsong;']];
     ?>
     <?= Nav::widget([
         'options' => ['class' => 'navbar-nav ms-auto mb-2 mb-lg-0'],

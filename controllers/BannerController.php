@@ -65,9 +65,7 @@ class BannerController extends Controller
                     $image->saveAs($path); //Save the image in the path
                     $model->img = $model->bann_photo;
                     if ($model->save()) {
-                        if (Yii::$app->user->isSuperAdmin) {
-                            return $this->redirect(['view', 'id' => $model->bann_id]);
-                        }
+                        return $this->redirect(['view', 'id' => $model->bann_id]);
                     }
                 } else {
                     Yii::$app->session->setFlash('error', "No has escogido ninguna imagen");
@@ -96,9 +94,7 @@ class BannerController extends Controller
                 }
                 $model->img = $model->bann_photo;
                 if ($model->save()) {
-                    if (Yii::$app->user->isSuperAdmin) {
-                        return $this->redirect(['view', 'id' => $model->bann_id]);
-                    }
+                    return $this->redirect(['view', 'id' => $model->bann_id]);
                 }
             }
         }

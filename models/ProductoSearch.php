@@ -6,14 +6,10 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Producto;
 
-/**
- * ProductoSearch represents the model behind the search form of `app\models\Producto`.
- */
+
 class ProductoSearch extends Producto
 {
-    /**
-     * {@inheritdoc}
-     */
+
     public function rules()
     {
         return [
@@ -22,22 +18,12 @@ class ProductoSearch extends Producto
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
 
-    /**
-     * Creates data provider instance with search query applied
-     *
-     * @param array $params
-     *
-     * @return ActiveDataProvider
-     */
     public function search($params)
     {
         $query = Producto::find();

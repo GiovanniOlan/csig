@@ -35,8 +35,6 @@ class SiteController extends Controller
         $path = 'index';
         if (Yii::$app->user->isSuperAdmin) {
             $path = 'superadmin/index';
-        } else if (User::hasRole('Dueno')) {
-            $path = 'Dueno/index';
         }
 
         return $this->render($path);

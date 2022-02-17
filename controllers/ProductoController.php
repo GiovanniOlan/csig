@@ -11,15 +11,12 @@ use yii\filters\VerbFilter;
 use app\models\ProductoImagen;
 use app\models\ProductoSearch;
 use yii\web\NotFoundHttpException;
+use webvimark\modules\UserManagement\models\User;
 
-/**
- * ProductoController implements the CRUD actions for Producto model.
- */
+
 class ProductoController extends Controller
 {
-    /**
-     * @inheritDoc
-     */
+
     public function behaviors()
     {
         return array_merge(
@@ -43,10 +40,7 @@ class ProductoController extends Controller
         $searchModel = new ProductoSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index', compact('searchModel', 'dataProvider'));
     }
 
     public function actionView($id)
@@ -78,9 +72,7 @@ class ProductoController extends Controller
                             $tModel->img = $tModel->proimg_url;
                             $tModel->save();
                         }
-                        if (Yii::$app->user->isSuperAdmin) {
-                            return $this->redirect(['index']);
-                        }
+                        return $this->redirect(['index']);
                     } else {
                         echo Alert::widget([
                             'options' => [

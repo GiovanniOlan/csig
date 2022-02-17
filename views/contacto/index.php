@@ -1,13 +1,11 @@
 <?php
 
-use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\grid\ActionColumn;
+use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\Contacto;
+use yii\grid\ActionColumn;
 
-/* @var $this yii\web\View */
-/* @var $searchModel app\models\ContactoSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Contactos';
 $this->params['breadcrumbs'][] = $this->title;
@@ -20,7 +18,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Contacto', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -38,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Contacto $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'con_id' => $model->con_id]);
-                 }
+                }
             ],
         ],
     ]); ?>
