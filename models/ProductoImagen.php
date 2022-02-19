@@ -20,8 +20,9 @@ class ProductoImagen extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['proimg_url', 'proimg_fkproducto', 'img'], 'required'],
+            [['proimg_url', 'proimg_fkproducto'], 'required'],
             [['proimg_id', 'proimg_fkproducto'], 'integer'],
+            [['img'], 'required', 'except' => 'update'],
             [['proimg_url'], 'string', 'max' => 255],
             [['proimg_fkproducto'], 'exist', 'skipOnError' => true, 'targetClass' => Producto::className(), 'targetAttribute' => ['proimg_fkproducto' => 'pro_id']],
             [['img'], 'file', 'maxFiles' => 10],

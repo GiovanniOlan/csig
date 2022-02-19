@@ -98,29 +98,27 @@ class ProductoController extends Controller
         $model = $this->findModel($id);
         $productoImagen = ProductoImagen::getAllImagesProductos($model->pro_id);
 
-
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            $imagenes = UploadedFile::getInstances(empty($productoImagen) ? new ProductoImagen : $productoImagen[0], 'img'); //instanciamos la imagen
-            $newProductImage = new ProductoImagen();
-            if (!is_null($imagenes)) {
-                ProductoImagen::deleteImagesAutomaticOfAProduct($model->pro_id);
-                foreach ($imagenes as $key => $image) {
-                    $tModel =  clone $newProductImage;
-                    $tModel->proimg_fkproducto = $model->pro_id;
-                    $ext = explode(".", $image->name); //We get which is the extension's file
-                    $ext = end($ext); //We get which is the extension's file
-                    $tModel->proimg_url = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
-                    $path = Yii::$app->basePath . "/web/images/productos/" . $tModel->proimg_url; // We safe path's image for be save 
-                    $image->saveAs($path); //Save the image in the path
-                    $tModel->img = $tModel->proimg_url;
-                    $tModel->save();
-                }
-                if (Yii::$app->user->isSuperAdmin) {
-                    return $this->redirect(['index']);
-                }
-            } else {
-                Yii::$app->session->setFlash('error', "No reconoce ninguna imagen");
-            }
+            return $this->redirect(['index']);
+            // $imagenes = UploadedFile::getInstances(empty($productoImagen) ? new ProductoImagen : $productoImagen[0], 'img'); //instanciamos la imagen
+            // $newProductImage = new ProductoImagen();
+            // if (!is_null($imagenes)) {
+            //     ProductoImagen::deleteImagesAutomaticOfAProduct($model->pro_id);
+            //     foreach ($imagenes as $key => $image) {
+            //         $tModel =  clone $newProductImage;
+            //         $tModel->proimg_fkproducto = $model->pro_id;
+            //         $ext = explode(".", $image->name); //We get which is the extension's file
+            //         $ext = end($ext); //We get which is the extension's file
+            //         $tModel->proimg_url = Yii::$app->security->generateRandomString() . ".{$ext}"; // We safe name's image with ramdom string
+            //         $path = Yii::$app->basePath . "/web/images/productos/" . $tModel->proimg_url; // We safe path's image for be save 
+            //         $image->saveAs($path); //Save the image in the path
+            //         $tModel->img = $tModel->proimg_url;
+            //         $tModel->save();
+            //     }
+            //     return $this->redirect(['index']);
+            // } else {
+            //     Yii::$app->session->setFlash('error', "No reconoce ninguna imagen");
+            // }
         }
 
         return $this->render('update', compact('model', 'productoImagen'));

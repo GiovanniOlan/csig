@@ -38,9 +38,9 @@ class ProductoImagenSearch extends ProductoImagen
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $query)
     {
-        $query = ProductoImagen::find();
+        //$query = ProductoImagen::find();
 
         // add conditions that should always apply here
 

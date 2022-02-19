@@ -56,24 +56,7 @@ use yii\bootstrap4\ActiveForm;
                 );
             } else {
                 //Update
-                //echo  Html::a('Editar una imagen solamente', ['index?sort=pro_name'], ['class' => 'btn btn-success']);
-                echo $form->field(empty($productoImagen) ? new ProductoImagen : $productoImagen[0], 'img[]')->widget(
-                    FileInput::classname(),
-                    [
-                        'options'       => ['accept' => 'image/*', 'multiple' => true, 'class' => 'form-control',],
-                        'language'      => 'es',
-                        'pluginOptions' => [
-                            'allowedFileExtensions' =>  ['jpg', 'png'],
-                            'initialPreviewAsData'  => true,
-                            'showUpload'            => false,
-                            'showRemove'            => false,
-                            'initialPreview'        => ProductoImagen::getUrls($productoImagen),
-                            'browseClass'           => 'btn btn-primary btn-block',
-                            'browseIcon'            => '<i class="fas fa-camera"></i> ',
-                            'browseLabel'           =>  'Seleccione una foto',
-                        ],
-                    ]
-                );
+                echo  Html::a('Editar una imagen solamente', ['/producto-imagen/actualizar-imagen-index?id=' . $model->pro_id], ['class' => 'btn btn-success']);
             }
             ?>
         </div>

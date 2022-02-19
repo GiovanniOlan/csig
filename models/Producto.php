@@ -70,4 +70,9 @@ class Producto extends \yii\db\ActiveRecord
     { //esta la uso en la vista _form.php de REACCION
         return ArrayHelper::map(Self::find()->all(), 'pro_id', 'pro_name');
     }
+
+    public static function getSpecificProduct($id)
+    { //esta la uso en la vista _form.php de REACCION
+        return Self::find()->where(['pro_id' => $id])->one();
+    }
 }

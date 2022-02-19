@@ -4,9 +4,9 @@
     <div class="rounded-3 py-2 px-1  pt-5">
         <div aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/producto/">Imagenes de Productos</a></li>
-                <li class="breadcrumb-item"><a href="/producto/view/<?= $model->proimg_id ?>"><?= $model->proimg_id ?></a></li>
-                <li class="breadcrumb-item active" aria-current="page">Imagenes de Productos</li>
+                <li class="breadcrumb-item"><a href="/producto/update?id=<?= $model->proimg_fkproducto ?>">Producto: <?= $model->proimg_fkproducto ?></a></li>
+                <li class="breadcrumb-item"><a href="/producto-imagen/actualizar-imagen-index?id=<?= $model->proimg_fkproducto ?>">Imagenes </a></li>
+                <li class="breadcrumb-item active" aria-current="page">Editar</li>
             </ol>
         </div>
     </div>
@@ -22,6 +22,6 @@
         </div>
 
         <?php $i = false;
-        echo $this->render('_form', compact('model', 'i')) ?>
+        echo $this->render('_agregar', compact('model', 'i')) ?>
     </div>
 </div>

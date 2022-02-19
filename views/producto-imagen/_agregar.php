@@ -11,17 +11,6 @@ use yii\bootstrap4\ActiveForm;
 <div class="row gx-5 justify-content-center">
     <div class="col-lg-8 col-xl-10">
         <?php $form = ActiveForm::begin(['options' => ['id' => 'contactForm']]); ?>
-        <!-- Producto input-->
-        <div class="form-floating mb-3">
-            <?= $form->field($model, "proimg_fkproducto")->widget(Select2::classname(), [
-                'data' => Producto::mapNombre(),
-                'options' => ['placeholder' => 'Selecciona su Estatus...', 'class' => 'form-control', 'id' => 'status'],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
-            ]);
-            ?>
-        </div>
         <!-- Image input-->
         <div class="form-floating mb-3">
             <?= $form->field($model, $i ? 'img[]' : 'img')->widget(
