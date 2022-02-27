@@ -35,6 +35,10 @@ use yii\bootstrap4\ActiveForm;
                         <?= $form->field($model, 'con_telefono', ['options' => ['tag' => false,]])->textInput(['placeholder' => 'Ingresa tu teléfono', 'maxlength' => true, ['class' => 'form-control', 'id' => 'phone']])->label(false) ?>
                         <label for="phone">Número de teléfono</label>
                     </div>
+                    <div class="form-floating mb-3">
+                        <?= $form->field($model, 'con_asunto', ['options' => ['tag' => false,]])->textInput(['rows' => 6, 'placeholder' => 'Ingresa el asunto', 'maxlength' => true, ['class' => 'form-control', 'id' => 'asunto']])->label(false) ?>
+                        <label for="asunto">Asunto</label>
+                    </div>
                     <!-- Message input-->
                     <div class="form-floating mb-3">
                         <?= $form->field($model, 'con_mensaje', ['options' => ['tag' => false,]])->textarea(['rows' => 6, 'placeholder' => 'Ingresa tu Mensaje', 'maxlength' => true, ['class' => 'form-control', 'id' => 'message']])->label(false) ?>

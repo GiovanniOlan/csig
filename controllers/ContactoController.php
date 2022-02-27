@@ -50,31 +50,24 @@ class ContactoController extends Controller
 
         $model = new Contacto();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post())) {
-                $model->con_fecha =  date('Y-m-d H:i:s');
 
-                // Yii::$app->mailer->compose('contact/html')
-                //     ->setFrom('contactanos@csig.com.mx')
-                //     ->setTo('csig.empresa@gmail.com')
-                //     ->setSubject('Prueba')
-                //     ->send();
-                if ($model->save()) {
-                    if (Yii::$app->user->isSuperAdmin) {
-                        return $this->redirect(['view', 'con_id' => $model->con_id]);
-                    } else if (Yii::$app->user->isGuest) {
-                        Yii::$app->session->setFlash('success', "Tu mensaje se ha enviado con éxito, te contactaremos lo mas rápido posible.");
-                        return $this->redirect(['/contacto', ['model' => new Contacto]]);
-                    }
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+            $model->con_fecha =  date('Y-m-d H:i:s');
+            if ($model->save()) {
+                if (Yii::$app->user->isSuperAdmin) {
+                    return $this->redirect(['view', 'con_id' => $model->con_id]);
+                } else if (Yii::$app->user->isGuest) {
+                    Yii::$app->session->setFlash('success', "Tu mensaje se ha enviado con éxito, te contactaremos lo mas rápido posible.");
+                    return $this->redirect(['/contacto', ['model' => new Contacto]]);
                 }
             }
+
+            return $this->refresh();
         } else {
             $model->loadDefaultValues();
         }
-
-        if (Yii::$app->user->isGuest) {
-            return $this->render('contact', compact('model'));
-        }
+        return $this->render('contact', compact('model'));
     }
 
     public function actionView($con_id)

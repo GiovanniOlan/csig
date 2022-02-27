@@ -45,20 +45,34 @@ $config = [
         //     'useFileTransport' => true,
         // ],
         'mailer' => [
-            'class' => yii\symfonymailer\Mailer::class,
-            'transport' =>
-            [
-                'transport' => [
-                    'scheme' => 'smtps',
-                    'host' => 'mx50.hostgator.mx ',
-                    'username' => 'contactanos@csig.com.mx',
-                    'password' => 'JsOuprkyytv1V4BZ#8',
-                    'port' => 21,
-                    'dsn' => 'native://default',
-                ],
-                'viewPath' => '@common/mail',
-                'useFileTransport' => false,
-            ]
+
+            'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure transport
+            // for the mailer to send real emails.
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => "Swift_SmtpTransport",
+                "host" => "smtp.titan.email",
+                "username" => "contactanos@csig.com.mx",
+                "password" => "JsOuprkyytv1V4BZ#8",
+                "port" => "465",
+                "encryption" => "ssl"
+            ],
+            // 'class' => yii\symfonymailer\Mailer::class,
+            // 'transport' =>
+            // [
+            //     'transport' => [
+            //         'scheme' => 'smtps',
+            //         'host' => 'mx50.hostgator.mx ',
+            //         'username' => 'contactanos@csig.com.mx',
+            //         'password' => 'JsOuprkyytv1V4BZ#8',
+            //         'port' => 21,
+            //         'dsn' => 'native://default',
+            //     ],
+            //     'viewPath' => '@common/mail',
+            //     'useFileTransport' => false,
+            // ]
             // 'transport' => [
             //     'scheme' => 'smtps',
             //     //'class' => 'Swift_SmtpTransport',
