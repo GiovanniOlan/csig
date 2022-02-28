@@ -70,5 +70,6 @@ class SiteController extends Controller
 
     public function actionProductos()
     {
+        return $this->render('products');
     }
 }

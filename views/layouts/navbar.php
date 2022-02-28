@@ -14,7 +14,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
 <header>
     <?php
     NavBar::begin([
-        'brandLabel' =>  Html::img('/template/img/ITec3.png', ['class' => 'rounded-circle me-3']),
+        'brandLabel' =>  'CSGI',
         'brandUrl' => Yii::$app->homeUrl,
         'innerContainerOptions' => ['class' => 'container px-5'],
         'options' => [
@@ -25,7 +25,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
     $menuItems[] = ['label' => 'Inicio', 'url' => '/'];
     $menuItems[] = ['label' => 'Nosotros', 'url' => '/site/nosotros'];
     $menuItems[] = ['label' => 'Contáctanos', 'url' => '/contacto'];
-    $menuItems[] = ['label' => 'Productos', 'url' => '/site/productos'];
+    $menuItems[] = ['label' => 'Productos y Servicios', 'url' => '/site/productos'];
     $menuItems[] = [
         'label' => 'Administrador',
         'items' => UserManagementModule::menuItems(),

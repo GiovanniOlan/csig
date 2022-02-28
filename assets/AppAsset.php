@@ -27,7 +27,8 @@ class AppAsset extends AssetBundle
 
 
         //Main Template
-        'template/js/scripts.js'
+        'template/js/scripts.js',
+        'template/js/function.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
