@@ -33,6 +33,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $this->view->title = 'CSIG';
         $path = 'index';
         if (Yii::$app->user->isSuperAdmin) {
             $path = 'superadmin/index';
@@ -43,6 +44,7 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
+        $this->view->title = 'CSIG - Iniciar Sesión';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -66,11 +68,13 @@ class SiteController extends Controller
 
     public function actionNosotros()
     {
+        $this->view->title = 'CSIG - Nosotros';
         return $this->render('about');
     }
 
     public function actionProductos()
     {
+        $this->view->title = 'CSIG - Productos y Servicios';
         $allProducts =  Producto::getAllproductos();
         return $this->render('products', compact('allProducts'));
     }

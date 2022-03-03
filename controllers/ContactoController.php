@@ -11,6 +11,10 @@ use yii\web\NotFoundHttpException;
 
 class ContactoController extends Controller
 {
+
+    public $freeAccessActions = ['index'];
+
+
     public function behaviors()
     {
         return array_merge(
@@ -31,6 +35,7 @@ class ContactoController extends Controller
 
     public function actionIndex()
     {
+        $this->view->title = 'CSIG - Contactanos';
         // $searchModel = new ContactoSearch();
         // $dataProvider = $searchModel->search($this->request->queryParams);
 
