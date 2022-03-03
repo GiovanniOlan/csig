@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use yii\web\Response;
 use yii\web\Controller;
+use app\models\Producto;
 use app\models\ContactForm;
 use yii\bootstrap4\ActiveForm;
 use webvimark\modules\UserManagement\models\User;
@@ -70,6 +71,7 @@ class SiteController extends Controller
 
     public function actionProductos()
     {
-        return $this->render('products');
+        $allProducts =  Producto::getAllproductos();
+        return $this->render('products', compact('allProducts'));
     }
 }

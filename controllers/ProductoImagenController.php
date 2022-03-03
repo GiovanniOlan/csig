@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Response;
+use Imagine\Image\Box;
+use yii\imagine\Image;
 use yii\web\Controller;
 use yii\bootstrap4\Alert;
 use yii\web\UploadedFile;
@@ -72,6 +74,10 @@ class ProductoImagenController extends Controller
                         $image->saveAs($path); //Save the image in the path
                         $tModel->img = $tModel->proimg_url;
                         $tModel->save(); //Save the temp model
+
+                        $imagine = Image::getImagine();
+                        $image = $imagine->open($path);
+                        $image->resize(new Box(600, 350))->save($path, ['quality' => 70]);
                     }
                     if (Yii::$app->user->isSuperAdmin) {
                         return $this->redirect(['index']);
@@ -100,6 +106,11 @@ class ProductoImagenController extends Controller
                 if (!is_null($image)) {
                     $path = Yii::$app->basePath . "/web/images/productos/" . $model->proimg_url;
                     $image->saveAs($path);
+
+
+                    $imagine = Image::getImagine();
+                    $image = $imagine->open($path);
+                    $image->resize(new Box(600, 350))->save($path, ['quality' => 70]);
                 }
                 $model->img = $model->proimg_url;
                 if ($model->save()) {
@@ -151,6 +162,10 @@ class ProductoImagenController extends Controller
                         $tModel->img = $tModel->proimg_url;
                         $tModel->proimg_fkproducto = $id;
                         $tModel->save(); //Save the temp model
+
+                        $imagine = Image::getImagine();
+                        $image = $imagine->open($path);
+                        $image->resize(new Box(600, 350))->save($path, ['quality' => 70]);
                     }
                     return $this->redirect(['actualizar-imagen-index', 'id' => $id]);
                 } else {
@@ -177,6 +192,10 @@ class ProductoImagenController extends Controller
                 if (!is_null($image)) {
                     $path = Yii::$app->basePath . "/web/images/productos/" . $model->proimg_url;
                     $image->saveAs($path);
+
+                    $imagine = Image::getImagine();
+                    $image = $imagine->open($path);
+                    $image->resize(new Box(600, 350))->save($path, ['quality' => 70]);
                 }
                 $model->img = $model->proimg_url;
                 if ($model->save()) {

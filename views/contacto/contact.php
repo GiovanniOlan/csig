@@ -46,7 +46,7 @@ use yii\bootstrap4\ActiveForm;
                     </div>
                     <!-- Submit Button-->
                     <div class="d-grid">
-                        <?= Html::submitButton('Save', ['class' => 'btn btn-primary btn-lg']) ?>
+                        <?= Html::submitButton('Enviar', ['class' => 'btn btn-primary btn-lg']) ?>
                     </div>
                     <?php ActiveForm::end(); ?>
                 </div>

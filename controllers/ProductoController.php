@@ -4,6 +4,8 @@ namespace app\controllers;
 
 use Yii;
 use app\widgets\Alert;
+use Imagine\Image\Box;
+use yii\imagine\Image;
 use yii\web\Controller;
 use app\models\Producto;
 use yii\web\UploadedFile;
@@ -71,6 +73,11 @@ class ProductoController extends Controller
                             $image->saveAs($path); //Save the image in the path
                             $tModel->img = $tModel->proimg_url;
                             $tModel->save();
+                            $imagine = Image::getImagine();
+                            $image = $imagine->open($path);
+                            $image->resize(new Box(600, 350))->save($path, ['quality' => 70]);
+                            // Image::resize($path, 600, 350)
+                            //     ->save(Yii::getAlias($path), ['quality' => 80]);
                         }
                         return $this->redirect(['index']);
                     } else {

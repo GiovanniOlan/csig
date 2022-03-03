@@ -54,6 +54,11 @@ class Producto extends \yii\db\ActiveRecord
         }
         return $ret;
     }
+    public function getOneImagen()
+    {
+        $im = ProductoImagen::find()->where(['proimg_fkproducto' => $this->pro_id])->one();
+        return $im->proimg_url;
+    }
 
     //This function return Visible if pro_status is 1 or Oculto if it is 0
     public function getStringStatus()
@@ -74,5 +79,9 @@ class Producto extends \yii\db\ActiveRecord
     public static function getSpecificProduct($id)
     { //esta la uso en la vista _form.php de REACCION
         return Self::find()->where(['pro_id' => $id])->one();
+    }
+    public static function getAllproductos()
+    { //esta la uso en la vista _form.php de REACCION
+        return Self::find()->where(['pro_status' => 1])->all();
     }
 }

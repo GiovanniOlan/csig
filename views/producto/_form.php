@@ -56,7 +56,7 @@ use yii\bootstrap4\ActiveForm;
                 );
             } else {
                 //Update
-                echo  Html::a('Editar una imagen solamente', ['/producto-imagen/actualizar-imagen-index?id=' . $model->pro_id], ['class' => 'btn btn-success']);
+                echo  Html::a('Editar las imagenes del producto', ['/producto-imagen/actualizar-imagen-index?id=' . $model->pro_id], ['class' => 'btn btn-success']);
             }
             ?>
         </div>

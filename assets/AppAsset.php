@@ -28,7 +28,8 @@ class AppAsset extends AssetBundle
 
         //Main Template
         'template/js/scripts.js',
-        'template/js/function.js'
+        'template/js/function.js',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
