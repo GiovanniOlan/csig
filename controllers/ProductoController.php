@@ -19,6 +19,8 @@ use webvimark\modules\UserManagement\models\User;
 class ProductoController extends Controller
 {
 
+    public $freeAccessActions = ['ver-producto'];
+
     public function behaviors()
     {
         return array_merge(
@@ -138,6 +140,14 @@ class ProductoController extends Controller
         $model->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionVerProducto($id)
+    {
+        $model = $this->findModel($id);
+        $images = ProductoImagen::getUrlImageOfOneProducto($id);
+
+        return $this->render('ver-producto', compact('model', 'images'));
     }
 
     protected function findModel($pro_id)

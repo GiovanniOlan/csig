@@ -59,4 +59,9 @@ class Banner extends \yii\db\ActiveRecord
     {
         return Html::img($this->getUrl(), ['width' => '30%', 'height' => '30%']);
     }
+
+    public static function getallBannersVisible()
+    {
+        return Self::find()->where(['bann_status' => 1])->all();
+    }
 }

@@ -7,7 +7,7 @@ use yii\bootstrap4\ActiveForm;
 <section class="">
     <div class="container px-5">
         <!-- Contact form-->
-        <div class="bg-light rounded-3 py-4 px-4 px-md-5 mb-5">
+        <div class="bg-light rounded-3 py-4 px-4 px-md-5 mb-5 mt-3">
             <div class="text-center mb-5">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
                     <i class="bi bi-envelope"></i>
@@ -54,54 +54,54 @@ use yii\bootstrap4\ActiveForm;
         </div>
 
 
-        <!-- Contact cards-->
         <div class="text-center py-2">
             <h3 class="fw-bolder">¡Nuestra misión es tenderte y asesorarte en todo momento!</h3>
             <p class="lead fw-normal text-muted mb-5">
 
-                Estamos cerca de ti para responder cualquier duda, escríbenos .
+                Estamos cerca de ti para responder cualquier duda, escríbenos.
 
             </p>
         </div>
         <div class="row gx-5 row-cols-2 row-cols-lg-4 py-3">
             <div class="col">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <a class="text-white" href="https://api.whatsapp.com/send?phone=+52 1 993 348 6051&text=Hola, Nececito mas informacion!"> <i class="bi bi-whatsapp"></i></a>
+                    <a class="text-white" href="https://api.whatsapp.com/send?phone=+52 1 9933442747&text=Hola, ¡CSIG me gustara más información!" target="_blank"><i class="bi bi-whatsapp"></i></a>
                 </div>
                 <div class="h5 mb-2">WhatsApp</div>
                 <p class="text-muted mb-0">Contáctanos por WhatsApp.</p>
             </div>
             <div class="col">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <a class="text-white" href="https://m.me/luis.castellanos.15?text=Hola, Nececito mas informacion!"><i class="bi bi-messenger"></i></a>
+                    <a class="text-white" href="https://m.me/103797925588723?text=Hola, ¡CSIG me gustara más información!" target="_blank"><i class="bi bi-messenger"></i></a>
                 </div>
                 <div class="h5">Messenger</div>
                 <p class="text-muted mb-0">Contáctanos por Messenger.</p>
             </div>
             <div class="col">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-envelope"></i>
+                    <a class="text-white" href="mailto:contactanos@csig.com.mx" target="_blank"><i class="bi bi-envelope"></i>
+                    </a>
                 </div>
                 <div class="h5">Correo electrónico</div>
-                <p class="text-muted mb-0">Contáctanos por Messenger.</p>
+                <p class="text-muted mb-0">Contáctanos por correo.</p>
             </div>
             <div class="col">
                 <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
-                    <i class="bi bi-telephone"></i>
+                    <a class="text-white" href="tel:9933442747" target="_blank"><i class="bi bi-telephone"></i></a>
                 </div>
                 <div class="h5">llámanos</div>
                 <p class="text-muted mb-0">
-                    Llámenos durante el horario comercial normal al (555) 892-9403.
+                    Llámenos durante el horario comercial normal al +52 1 (993) 344 27 47.
                 </p>
             </div>
         </div>
         <!--localización-->
         <div class="py-2">
             <h5 class="fw-bolder">Dirección</h5>
-            <p>Boulevard Adolfo Ruiz Cortines 1840, Carrizal, 86108 Villahermosa, Tab.</p>
+            <p>Av.martires de cananea 115-A col. Indeco ciudad industrial cp. 86017.</p>
         </div>
         <div class="container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30358.088545686725!2d-92.9675582!3d17.989849900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85edd7a4df15786f%3A0x4a44c45c0e93bb21!2sEuroplaza!5e0!3m2!1ses-419!2smx!4v1644462081302!5m2!1ses-419!2smx" class="container" height="400" style="border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3794.06129493694!2d-92.9086377856382!3d18.022358788925647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85edd879c712f895%3A0xc27824749155d6c6!2sAv%20M%C3%A1rtires%20de%20Cananea%20115%2C%20Progresivo%20Ciudad%20Industrial%2C%2086017%20Villahermosa%2C%20Tab.!5e0!3m2!1ses-419!2smx!4v1646094288932!5m2!1ses-419!2smx" class="container" height="400" style="border-radius: 20px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
 </section>

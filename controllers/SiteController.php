@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Response;
+use app\models\Banner;
 use yii\web\Controller;
 use app\models\Producto;
 use app\models\ContactForm;
@@ -76,6 +77,7 @@ class SiteController extends Controller
     {
         $this->view->title = 'CSIG - Productos y Servicios';
         $allProducts =  Producto::getAllproductos();
-        return $this->render('products', compact('allProducts'));
+        $banners = Banner::getallBannersVisible();
+        return $this->render('products', compact('allProducts', 'banners'));
     }
 }

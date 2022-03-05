@@ -8,39 +8,24 @@ $productos = Producto::getAllproductos();
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12 col-lg-12 bg-image d-flex
-                            justify-content-center aling-item-center" style="background-image:linear-gradient(rgba(5,7,12,0.7),rgba(5,7,12,0.75)),
-                            url('/template/img/9.jpg');
-                            background-size: cover; background-repeat:
-                            no-repeat;" id="cont1">
+        <div class="col-12 col-lg-12 bg-image d-flex justify-content-center aling-item-center" style="background-image:linear-gradient(rgba(5,7,12,0.7),rgba(5,7,12,0.75)), url('/template/img/9.jpg'); background-size: cover; background-repeat: no-repeat;" id="cont1">
             <div class="row">
                 <div class="col-12 col-lg-12 d-flex
-                                    justify-content-center
-                                    aling-item-center">
+            justify-content-center
+            aling-item-center">
                     <img style="height:
-                                        25vh;" src="/template/img/logoem.png" alt="">
+            25vh;" src="/template/img/logoem.png" alt="logo de empresa">
                 </div>
                 <!-- divicion de las img -->
                 <div class="row" id="dd">
                     <!-- img 1 -->
-                    <div class="col-3 d-none
-                                    d-xl-block
-                                    text-center" id="da">
-                        <div style="background-image:
-                                            url(/template/img/15.jpeg);
-                                            background-size: cover;" id="cuadro">
+                    <div class="col-3 d-none d-xl-block text-center" id="da">
+                        <div style="background-image: url(/template/img/15.jpeg); background-size: cover;" id="cuadro">
                             <div class="d-block w-100">
                                 <div class="row">
-                                    <div class="col-12
-                                                        col-md-12">
-                                        <div class="text-center
-                                                            justify-content-center
-                                                            align-items-center
-                                                            d-block d-flex" style="height:
-                                                            40vh;">
-                                            <div>
-                                                <!-- <h3 class="text-white">dsadda</h3> -->
-                                            </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="text-center justify-content-center align-items-center d-block d-flex" id="carr">
+
                                         </div>
                                     </div>
                                 </div>
@@ -48,49 +33,28 @@ $productos = Producto::getAllproductos();
                         </div>
                     </div>
                     <!-- img 2 -->
-                    <div class="col-3 d-none
-                                    d-xl-block
-                                    text-center" id="da">
-                        <div style="background-image:
-                                            url(/template/img/14.jfif);
-                                            background-size: cover;" id="cuadro">
+                    <div class="col-3 d-none d-xl-block text-center" id="da">
+                        <div style="background-image: url(/template/img/14.jfif); background-size: cover;" id="cuadro">
                             <div class="d-block w-100">
                                 <div class="row">
-                                    <div class="col-12
-                                                        col-md-12">
-                                        <div class="text-center
-                                                            justify-content-center
-                                                            align-items-center
-                                                            d-block d-flex" style="height:
-                                                            40vh;">
-                                            <div>
-                                                <!-- <h3 class="text-white">dsadda</h3> -->
-                                            </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="text-center justify-content-center align-items-center d-block d-flex" id="carr">
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!-- img 3 -->
-                    <div class="col-3 d-none
-                                    d-xl-block
-                                    text-center" id="da">
-                        <div style="background-image:
-                                            url(/template/img/16.jpeg);
-                                            background-size: cover;" id="cuadro">
+                    <div class="col-3 d-none d-xl-block text-center" id="da">
+                        <div style="background-image: url(/template/img/16.jpeg); background-size: cover;" id="cuadro">
                             <div class="d-block w-100">
                                 <div class="row">
-                                    <div class="col-12
-                                                        col-md-12">
-                                        <div class="text-center
-                                                            justify-content-center
-                                                            align-items-center
-                                                            d-block d-flex" style="height:
-                                                            40vh;">
-                                            <div>
-                                                <!-- <h3 class="text-white">dsadda</h3> -->
-                                            </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="text-center justify-content-center align-items-center d-block d-flex" id="carr">
+
                                         </div>
                                     </div>
                                 </div>
@@ -98,24 +62,13 @@ $productos = Producto::getAllproductos();
                         </div>
                     </div>
                     <!-- img 4 -->
-                    <div class="col-3 d-none
-                                    d-xl-block
-                                    text-center" id="da">
-                        <div style="background-image:
-                                            url(/template/img/12.jfif);
-                                            background-size: cover;" id="cuadro">
+                    <div class="col-3 d-none d-xl-block text-center" id="da">
+                        <div style="background-image: url(/template/img/12.jfif); background-size: cover;" id="cuadro">
                             <div class="d-block w-100">
                                 <div class="row">
-                                    <div class="col-12
-                                                        col-md-12">
-                                        <div class="text-center
-                                                            justify-content-center
-                                                            align-items-center
-                                                            d-block d-flex" style="height:
-                                                            40vh;">
-                                            <div>
-                                                <!-- <h3 class="text-white">dsadda</h3> -->
-                                            </div>
+                                    <div class="col-12 col-md-12">
+                                        <div class="text-center justify-content-center align-items-center d-block d-flex" id="carr">
+
                                         </div>
                                     </div>
                                 </div>
@@ -125,15 +78,9 @@ $productos = Producto::getAllproductos();
                     <!-- termina el row -->
                 </div>
                 <div class="col-12 col-lg-12">
-                    <div class="text-center
-                                        justify-content-center
-                                        align-items-center" style="height:
-                                        50vh;">
-                        <h2 class="text-white">COMERCIALIZADORA
-                            Y SERVICIOS INDUSTRIALES DEL
-                            GOLFO</h2>
-                        <h3 class="text-white">dsdas adasdsa
-                            sadasdasd</h3>
+                    <div class="text-center justify-content-center align-items-center mt-3" style="height: 50vh;">
+                        <h2 class="text-white">COMERCIALIZADORA Y SERVICIOS INDUSTRIALES DEL GOLFO</h2>
+                        <h3 class="text-white">(ADDI YOLANDA MENDOZA REYES)</h3>
                         <a href="#features" class="btn btn-outline-light m-5">SABER MAS</a>
                     </div>
                 </div>

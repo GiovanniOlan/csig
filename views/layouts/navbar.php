@@ -36,7 +36,7 @@ use webvimark\modules\UserManagement\UserManagementModule;
         'visible' => Yii::$app->user->isSuperAdmin,
     ];
     $duenioItems[] = ['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Productos', 'url' => ['/producto/']];
-    $duenioItems[] = ['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Anuncios', 'url' => ['/banner/']];
+    $duenioItems[] = ['label' => '<i class="fa fa-angle-double-right"></i> ' . 'Anuncios', 'url' => ['/banner/'], 'visible' => false];
     $menuItems[] = ['label' => 'Opciones', 'items' => $duenioItems, 'url' => '/user-management/auth/logout', 'visible' => User::hasRole('Duenio', false), 'options' => ['style' => 'font-family: fangsong;']];
     $menuItems[] = ['label' => 'CERRAR SESIÓN(Programador X)', 'url' => '/user-management/auth/logout', 'visible' => Yii::$app->user->isSuperAdmin, 'options' => ['style' => 'font-family: fangsong;']];
     $menuItems[] = ['label' => 'CERRAR SESIÓN(Salomon)', 'url' => '/user-management/auth/logout', 'visible' => User::hasRole('Duenio', false), 'options' => ['style' => 'font-family: fangsong;']];

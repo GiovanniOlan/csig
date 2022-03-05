@@ -100,4 +100,9 @@ class ProductoImagen extends \yii\db\ActiveRecord
             }
         }
     }
+
+    public static function getUrlImageOfOneProducto($id)
+    {
+        return self::find()->where(['proimg_fkproducto' => $id])->all();
+    }
 }

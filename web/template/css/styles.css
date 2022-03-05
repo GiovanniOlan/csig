@@ -82,18 +82,16 @@
     scroll-behavior: smooth;
   }
 }
-#dd{
-  margin: 0;
-  padding:1px 1px 1px 1px;
-  
+#redimencionar{
+height:40vh;
 }
-#da{
-margin: 0;
-padding: 3px 3px;
+#carr{
+height:40vh;
 }
-#cuadro{
-  border-radius: 5%;
-}
+.contac:hover{
+  color: #0d6efd ;
+  }
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -527,12 +525,11 @@ progress {
 
 [hidden] {
   display: none !important;
-}s
+}
 #cont1{
   padding: 0;
   margin:0;
 }
-
 
 .lead {
   font-size: 1.25rem;
